@@ -2,7 +2,7 @@
 #
 # author: Miguel Betegon
 # last edited: 150529
-# version 0.4
+# version 0.4.1
 #
 # NOTE: ALL positions used in these classes are 0-offset. Positions parsed from
 # files with a different offset will be adjusted to be 0-offset.
