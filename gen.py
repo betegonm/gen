@@ -134,15 +134,7 @@ class File:
 		"""Bowtie 1.x output iterator.\nYields BowtieAlignment objects"""
 		for line in self.fh:
 			yield BowtieAlignment(line.rstrip())
-			
-	def bedIter(self):
-		"""BED file iterator (accepts 3 and 6 column files).\nYields Feature objects"""
-		for line in self.fh:
-			fields = line.strip().split('\t')
-			if len(fields) == 3:
-				yield Feature(fields[0], '', fields[1], fields[2])
-			else:
-				yield Feature(fields[0], fields[3], fields[1], fields[2], fields[5])
+
 	
 	def blastIter(self):
 		"""BLAST -m8 output iterator.\nYields BlastHit objects"""
@@ -345,23 +337,6 @@ class Sequence:
 						yield (orfStart, orfEnd)
 					orfStarts = []
 			
-
-
-class Read(Feature):
-	
-	def __init__(self, chrm, name, start, end, strand, sequence, score=None):
-		Feature.__init__(self, chrm, name, start, end, strand)
-		self.sequence = Sequence(sequence)
-		self.score = score
-	
-	def getSequence(self):
-		return self.sequence
-	
-	def __str__(self):
-		return str(self.sequence)
-	
-	def __len__(self):
-		return len(self.sequence)
 
 
 
