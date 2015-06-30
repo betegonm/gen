@@ -34,8 +34,7 @@ class Graph:
 	def __init__(self):
 		pass
 	
-	@staticmethod
-	def bar(xValues, yValues, height=25, char='*'):
+	def bar(self, xValues, yValues, height=25, char='*'):
 		maxVal = float(max(yValues))
 		print maxVal
 		for i in range(height, 0, -1):
@@ -264,7 +263,7 @@ class Sequence:
 		return Sequence.aminoacids[codon.upper()]
 	
 	""" Return string with translated sequence """
-	def translate(self):
+	def protein(self):
 		return Sequence(''.join([Sequence._translateCodon(self.sequence[3*i:(3*i)+3]) for i in range(0,len(self.sequence)/3)]))
 	
 	def __init__(self, sequence):
