@@ -282,8 +282,8 @@ class Sequence:
 		return Sequence(self.sequence[start:stop])
 	
 	""" Return sequence string with \n every 'wrap' characters """
-	def wrap(self, wrap=80):
-		return Sequence('\n'.join([self.sequence[x: x+wrap] for x in xrange(0, self.length(), wrap)]))
+	def wrap(self, wrapAt=80):
+		return Sequence('\n'.join([self.sequence[x: x+wrapAt] for x in xrange(0, self.length(), wrapAt)]))
 	
 	""" Return the number of ocurrences of c in the sequence """
 	def count(self, c):
